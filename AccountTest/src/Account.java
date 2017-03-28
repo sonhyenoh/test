@@ -2,27 +2,49 @@ import java.util.Scanner;
 
 public class Account {
 	
-	private double account1 = 50.00;
+	private double account ;
 	
-	private double account2 = 0.00;
-	public void a1(double grade){
-		account1 = account1 - grade;
-		
+	
+ Account(double w){
+	 account = w;
+}
+	public void credit(double grade){
+	 account += grade;
 	}
-	public void a2(double grade){
-		if(account2>grade){
+	// 밑에 함수는 0이하로 못뺄때 쓰는 함수~
+	/*public void debit(double grade){
+		if(account>grade){
 			
 		
-		account2 = account2 - grade;
-		}else if(account2<grade){
-			System.out.print("dedib : ");
+		account = account - grade;
+	
+		}else if(account<grade){
+			System.out.print("debit amount exceeded account balance \n");
 		}
 	}
-	public double getAccount1(){
-		return account1;
+*/
+	public void debit(double grade){
+		if(account>grade){
+			
+		
+		account = account - grade;
+	
+		}else if(account<grade){
+			account = account - grade;
+			System.out.print("debit amount exceeded account balance \n");
+		}
 	}
-	public double getAccount2(){
-		return account2;
+	public void getBalance(){
+		System.out.printf("account : $%f \n", account);
+               
+	}
+	
+	protected void setBalance(){
+		if(account>0){
+			account += account*0.01;
+		}else if(account<0){
+			account += account*0.07;
+		}
 	}
 }
 	
