@@ -1,54 +1,30 @@
-import java.util.Scanner;
-
-public class Account {
+public class Account{
+	private double account;
 	
-	private double account ;
+	public Account(){
+	}
 	
+	public double getAccount(){
+		return account;
+	}
 	
- Account(double w){
-	 account = w;
+    public double credit(double add){
+    	account += add;
+    	return account;
+    }
+    
+    public double balance(int num){
+    	
+    	System.out.printf("account%d balance : $%f\n",num, account);
+    	return account;
+    }
+	public double withdrawal(double sub){
+		if(sub>account){
+			System.out.print("Debit amount exceeded account balance\n");
+		}
+		else{
+		account -= sub;
+		}
+		return account;
+	}	
 }
-	public void credit(double grade){
-	 account += grade;
-	}
-	// 밑에 함수는 0이하로 못뺄때 쓰는 함수~
-	/*public void debit(double grade){
-		if(account>grade){
-			
-		
-		account = account - grade;
-	
-		}else if(account<grade){
-			System.out.print("debit amount exceeded account balance \n");
-		}
-	}
-*/
-	public void debit(double grade){
-		if(account>grade){
-			
-		
-		account = account - grade;
-	
-		}else if(account<grade){
-			account = account - grade;
-			System.out.print("debit amount exceeded account balance \n");
-		}
-	}
-	public void getBalance(){
-		System.out.printf("account : $%f \n", account);
-               
-	}
-	
-	protected void setBalance(){
-		if(account>0){
-			account += account*0.01;
-		}else if(account<0){
-			account += account*0.07;
-		}
-	}
-}
-	
-	
-	
-	
-
