@@ -1,11 +1,12 @@
-public class Account{
+public abstract class Account{
 	private double account;
 	
 	public Account(){
 		
 	}
 	
-
+	public abstract double getWithdrawableAccount();
+	public abstract double passTime(int moon);
 	public double getBalance(){
 		return account;
 	}
