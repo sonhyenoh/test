@@ -1,9 +1,14 @@
-public abstract class Account{
+public abstract class Account implements Valuable{
 	private double account;
 	
 	public Account(){
 		
 	}
+	@Override
+	public double EstimateValue(int month){
+		return account;
+	}
+		
 	
 	public abstract double getWithdrawableAccount();
 	public abstract double passTime(int moon);

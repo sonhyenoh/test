@@ -8,6 +8,15 @@ public class SavingAccount extends Account {
 		this.interest= interest;
 		this.drive = account;
 	}
+	public String toString(){
+		return "SavingAccount_Balance :" + getBalance();
+	}
+	@Override
+	public double EstimateValue(int month){
+		double pass =  getBalance()*Math.pow((1+interest),month);
+		setBalance(pass);
+		return getBalance();
+	}
 	@Override
 	public double debit(double sub){
 		if(mon<12){

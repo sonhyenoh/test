@@ -1,4 +1,4 @@
-public class CheckingAccount extends Account{
+public  class CheckingAccount extends Account{
 	private double credit_limit;
 	private double interest;
 	private double loan_interest;
@@ -9,6 +9,18 @@ public class CheckingAccount extends Account{
 		this.interest = interest;
 		this.loan_interest = loan_interest;
 	}
+	public String toString(){
+		return "CheckingAccount_Balance :" + getBalance() ;
+	}
+	@Override
+	public double EstimateValue(int month){
+		double i;
+		i = getBalance();
+		i = i+ i*interest*month;
+		setBalance(i);
+		return getBalance();
+	}
+	
 	@Override
 	public double credit(double add){
 		super.credit(add);
