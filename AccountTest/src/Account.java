@@ -2,9 +2,15 @@ public class Account{
 	private double account;
 	
 	public Account(){
+		
 	}
 	
-	public double getAccount(){
+
+	public double getBalance(){
+		return account;
+	}
+	protected double setBalance(double account){
+		this.account = account;
 		return account;
 	}
 	
@@ -15,10 +21,13 @@ public class Account{
     
     public double balance(int num){
     	
-    	System.out.printf("account%d balance : $%f\n",num, account);
+    	System.out.printf("account%d balance : $%.2f\n",num, account);
+    	if(account<0){
+    		System.out.printf("Oh! Your account%d is small than 0\n",num);
+    	}
     	return account;
     }
-	public double withdrawal(double sub){
+	public double debit(double sub){
 		if(sub>account){
 			System.out.print("Debit amount exceeded account balance\n");
 		}
@@ -27,4 +36,6 @@ public class Account{
 		}
 		return account;
 	}	
+	
+	
 }
