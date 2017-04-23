@@ -2,6 +2,7 @@ public class CheckingAccount extends Account{
 	private double credit_limit;
 	private double interest;
 	private double loan_interest;
+	private double mon;
 	public CheckingAccount(double account,double credit_limit, double interest,double loan_interest){
 		setBalance(account);
 		this.credit_limit = credit_limit;
@@ -62,7 +63,8 @@ public class CheckingAccount extends Account{
 	}
 	@Override
 	public double passTime(int moon){
-		double pass = getBalance()*Math.pow((1+ loan_interest),moon);
+		mon += moon;
+		double pass = getBalance()*Math.pow((1+ loan_interest),mon);
 		setBalance(pass);
 		return getBalance();
 	}
