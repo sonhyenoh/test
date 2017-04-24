@@ -33,14 +33,9 @@ public abstract class Account implements Valuable{
     	}
     	return account;
     }
-	public double debit(double sub){
-		if(sub>account){
-			System.out.print("Debit amount exceeded account balance\n");
-		}
-		else{
-		account -= sub;
-		}
-		return account;
+	public void  debit(double amount)throws ArithmeticException{
+		account -= amount;
+		
 	}	
 	
 	

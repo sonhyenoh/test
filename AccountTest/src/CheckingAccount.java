@@ -33,30 +33,12 @@ public  class CheckingAccount extends Account{
 	}
 
 	@Override
-	public double debit(double add){
-		/*if(add > getBalance()){ //debit함수를 재정의  
-		if(add > credit_limit){
-			System.out.printf("함도초과 입니다. 한도는 $%f입니다.",credit_limit);
-			}
-		else{
-			  double account3 = getBalance();
-			  account3 -= add;
-			  setBalance(account3);
-		}
-		}
-		else{
-		super.debit(add);
-		}*/  //이것은 checkingAccount할때 debit함수의 정의
-		if(add> getBalance()+ credit_limit){
-			System.out.print("출금하실수 없습니다.");
-		}
-		else{
-			setBalance(getBalance()-add);
-			
-		}
-		return getBalance();
+	public void  debit(double amount) throws ArithmeticException{
+		if(amount > getBalance()) throw new ArithmeticException("Deibt amount exceeded account balance");
+		else if(amount <0)throw new ArithmeticException("음수입력!");
+		super.debit(amount);
+		
 	}
-	
 	@Override
 	public double getWithdrawableAccount(){
 		
@@ -77,9 +59,13 @@ public  class CheckingAccount extends Account{
 	public double passTime(int moon){
 		mon = moon; //처음에 mon에다가 +=라고 했었는데 달수가 저장되는게 아니라 입력한 달수만큼 이자만 붙기때문에 !
 		//double pass = getBalance()*Math.pow((1+ loan_interest),mon);  //이것은 복리다 바보야
-	double pass;
+	double pass=0;
+	if(getBalance()<0){
 		pass = getBalance() + getBalance()*loan_interest*mon; 
-		
+	}
+	else if(getBalance()>0){
+		pass = getBalance() + getBalance()*mon*interest;
+		}
 		
 		
 		setBalance(pass);

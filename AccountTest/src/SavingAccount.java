@@ -18,13 +18,12 @@ public class SavingAccount extends Account {
 		return getBalance();
 	}
 	@Override
-	public double debit(double sub){
-		if(mon<12){
-			System.out.print("아직 출금할수 없습니다\n");
-		}else{
-			setBalance(getBalance() - sub);
-		}
-		return getBalance();
+	public void  debit(double amount) throws ArithmeticException{
+		if(mon>=12){
+		if(amount > getBalance()) throw new ArithmeticException("Deibt amount exceeded account balance");
+		if(amount <0)throw new ArithmeticException("음수입력!");
+		super.debit(amount);
+		}else throw new ArithmeticException("아직 출금할수 없습니다.");
 	}
 	@Override
 	public double getWithdrawableAccount(){
