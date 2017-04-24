@@ -14,5 +14,6 @@ public class ValuabeTest {
 		System.out.printf("%s\n",objectList[i].toString());
 		System.out.printf("6 month later Valuable : %.2f\n\n", objectList[i].EstimateValue(6));
 		}
+
 	}
 }

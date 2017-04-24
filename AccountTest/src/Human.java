@@ -14,4 +14,8 @@ public String toString(){
 public double EstimateValue(int month){
 	return Double.POSITIVE_INFINITY;
 }
+@Override
+public double EstimateValue(){
+	return Double.POSITIVE_INFINITY;
+}
 }

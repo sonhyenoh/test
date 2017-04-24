@@ -2,6 +2,7 @@
 public class SavingAccount extends Account {
 	private double interest;
 	private int mon=0;
+	
 	private double drive;
 	public SavingAccount(double account, double interest){
 		setBalance(account);
@@ -13,9 +14,15 @@ public class SavingAccount extends Account {
 	}
 	@Override
 	public double EstimateValue(int month){
+		
 		double pass =  getBalance()*Math.pow((1+interest),month);
-		setBalance(pass);
-		return getBalance();
+		
+		return pass;
+	}
+	@Override
+	public double EstimateValue(){
+		return this.EstimateValue(1);
+		
 	}
 	@Override
 	public void  debit(double amount) throws ArithmeticException{
@@ -41,6 +48,11 @@ public class SavingAccount extends Account {
 			if(mon >= 12){
 		setBalance(drive*Math.pow((1+interest), 12)); //왜 drive를 했냐면 만약 mon이 12이상일때는 계속 account값이 변하기 때문에 처음에 설정해놓은 그값으로 계산.
 			}
+		return getBalance();
+	}
+	@Override
+	public double passTime(){
+		this.passTime(1);
 		return getBalance();
 	}
 

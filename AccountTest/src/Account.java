@@ -8,10 +8,14 @@ public abstract class Account implements Valuable{
 	public double EstimateValue(int month){
 		return account;
 	}
-		
+	@Override
+	public double EstimateValue(){
+		return account;
+	}	
 	
 	public abstract double getWithdrawableAccount();
 	public abstract double passTime(int moon);
+	public abstract double passTime();
 	public double getBalance(){
 		return account;
 	}

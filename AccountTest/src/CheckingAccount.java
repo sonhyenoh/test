@@ -3,6 +3,7 @@ public  class CheckingAccount extends Account{
 	private double interest;
 	private double loan_interest;
 	private double mon;
+
 	public CheckingAccount(double account,double credit_limit, double interest,double loan_interest){
 		setBalance(account);
 		this.credit_limit = credit_limit;
@@ -15,12 +16,19 @@ public  class CheckingAccount extends Account{
 	@Override
 	public double EstimateValue(int month){
 		double i;
+		
+//		i= super.EstimateValue(month);
 		i = getBalance();
 		i = i+ i*interest*month;
-		setBalance(i);
-		return getBalance();
+		
+		return i;
 	}
-	
+	@Override
+	public double EstimateValue(){
+		
+		return this.EstimateValue(1);
+		
+	}
 	@Override
 	public double credit(double add){
 		super.credit(add);
@@ -34,10 +42,20 @@ public  class CheckingAccount extends Account{
 
 	@Override
 	public void  debit(double amount) throws ArithmeticException{
-		if(amount > getBalance()) throw new ArithmeticException("Deibt amount exceeded account balance");
-		else if(amount <0)throw new ArithmeticException("음수입력!");
-		super.debit(amount);
 		
+		if(amount <0)throw new ArithmeticException("음수입력!");
+		
+		if(amount > getBalance()){ //debit함수를 재정의  
+		if(amount > getWithdrawableAccount())throw new ArithmeticException("Deibt amount exceeded account balance");
+		else{
+			  double account3 = getBalance();
+			  account3 -= amount;
+			  setBalance(account3);
+		}
+		}
+		else{
+		super.debit(amount);
+		} 
 	}
 	@Override
 	public double getWithdrawableAccount(){
@@ -61,7 +79,8 @@ public  class CheckingAccount extends Account{
 		//double pass = getBalance()*Math.pow((1+ loan_interest),mon);  //이것은 복리다 바보야
 	double pass=0;
 	if(getBalance()<0){
-		pass = getBalance() + getBalance()*loan_interest*mon; 
+		pass = getBalance()   + getBalance()*loan_interest*mon; 
+	
 	}
 	else if(getBalance()>0){
 		pass = getBalance() + getBalance()*mon*interest;
@@ -72,6 +91,14 @@ public  class CheckingAccount extends Account{
 		
 		return getBalance();
 	}
+	@Override
+	public double passTime(){
+	return this.passTime(1);
+	
+		
+	}
+	
+	
 	public boolean isBankrupt(){
 		boolean isbank = false;
 		

@@ -11,12 +11,20 @@ public class Car implements Valuable {
 		}
 		@Override
 		public double EstimateValue(int month){
-		 price -= price*0.2;
-		 int i=0;
+		double price2 = price;	 
+		price2 -= price2*0.2;
+		 
+		int i=0;
 		 while(i<month){
-		 price = price - 0.01*price;
+		 price2 = price2 - 0.01*price2;
 		 i++;
 		 }
-		 return price;
+		 
+		 return price2;
+		}
+		@Override
+		public double EstimateValue(){
+		 return this.EstimateValue(1);
+		 
 		}
 }
