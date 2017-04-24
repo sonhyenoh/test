@@ -38,7 +38,7 @@ public class SavingAccount extends Account {
 	public double passTime(int moon){
 		this.mon += moon;
 		
-		System.out.printf("Moon : %d \n", mon);
+		
 			if(mon >= 12){
 		setBalance(drive*Math.pow((1+interest), 12)); //왜 drive를 했냐면 만약 mon이 12이상일때는 계속 account값이 변하기 때문에 처음에 설정해놓은 그값으로 계산.
 			}

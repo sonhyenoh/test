@@ -75,16 +75,26 @@ public  class CheckingAccount extends Account{
 	}
 	@Override
 	public double passTime(int moon){
-		mon += moon;
-		double pass = getBalance()*Math.pow((1+ loan_interest),mon);
+		mon = moon; //처음에 mon에다가 +=라고 했었는데 달수가 저장되는게 아니라 입력한 달수만큼 이자만 붙기때문에 !
+		//double pass = getBalance()*Math.pow((1+ loan_interest),mon);  //이것은 복리다 바보야
+	double pass;
+		pass = getBalance() + getBalance()*loan_interest*mon; 
+		
+		
+		
 		setBalance(pass);
+		
 		return getBalance();
 	}
-	public double isBankrupt(){
-		if(getWithdrawableAccount()==0){
-			System.out.print("account1 went Bankrupt!\n" );
+	public boolean isBankrupt(){
+		boolean isbank = false;
+		
+		if(isbank = getWithdrawableAccount()==0){
+			return isbank;
 		}
-		return getBalance();
+		else{
+		return isbank;
+	}
 	}
 	public double nextmonth(){
 		if(getBalance() >= 0){
