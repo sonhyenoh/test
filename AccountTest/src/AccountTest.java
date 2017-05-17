@@ -1,16 +1,26 @@
 		
 		import java.util.InputMismatchException;
 		import java.util.Scanner;
-
+		import java.util.*;
 		public class AccountTest {
 			public static void main(String args[]) throws Exception{
 				
+				CheckingAccount account1= new CheckingAccount(100,50,0.01,0.07);
+				SavingAccount account2= new SavingAccount(100,0.05);
+				ArrayList<Account> accountList = new ArrayList<Account>();
+				
+				accountList.add(account1);
+				accountList.add(account2);
+				System.out.println("전체 계좌의 잔액 합산 :" + Account.sumForAccount(accountList));
+				System.out.println("전체계좌의 12개월 후 적용");
+				Account.passTimeForList(accountList,12);
+				System.out.println("전체계좌의 잔액 합산 :" +Account.sumForAccount(accountList));
 				/*
 				 * 메소드 오버로딩에 대해 테스트 하는 코드입니다.
 				 * 변수명 및 메소드명 외 다른 부분은 절대 수정하지 마세요.
 				 */
 				
-				Scanner scan = new Scanner(System.in);
+				/*Scanner scan = new Scanner(System.in);
 				
 				Valuable[] objectList = new Valuable[4];
 				
@@ -32,7 +42,7 @@
 				 * 여기부터 중간고사 이전까지의 실습을 전체적으로 테스트합니다.
 				 * 변수명 및 메소드명 외 다른 부분은 절대 수정하지 마세요.
 				 */
-				
+				/*
 				Account account1 = new CheckingAccount(100,50,0.01,0.07);
 				Account account2 = new SavingAccount(100,0.05);
 				CheckingAccount c_account1 = (CheckingAccount)account1;
@@ -155,6 +165,7 @@
 						case 0 : System.out.println("끝");
 					}	
 				}while(cmd!=0);		
+*/
 			} 
 		};
 
