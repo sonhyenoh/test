@@ -5,6 +5,7 @@ public class PokemonGostartpart {
 	    try {
 
 	      Thread.sleep(time);
+	 
 
 	    } catch (InterruptedException e) { }
 
