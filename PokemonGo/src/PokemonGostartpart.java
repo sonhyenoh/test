@@ -18,5 +18,7 @@ public class PokemonGostartpart {
 		System.out.println("피카피카");
 		sleep(1000);
 		System.out.println("첫번째 포켓몬 피카츄를 얻었다. ");
+		sleep(1000);
+		
  }
 }
