@@ -1,5 +1,8 @@
 
 public class PokemonGostartpart {
+	PokemonGostartpart(){
+		
+	}
 	public static void sleep(int time){
 
 	    try {
