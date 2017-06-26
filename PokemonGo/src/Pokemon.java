@@ -1,9 +1,12 @@
 
 public class Pokemon {
 	private String name;
-	private int jinha;
+	protected static int jinha;
 	private static String attribute;
 	private int hp=0;
+	Pokemon(){
+		
+	}
   Pokemon(String name,String attribute,int jinha){
 	  this.name= name;
 	  this.jinha =jinha;
